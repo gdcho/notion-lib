@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "notion library",
+  "description": "easily add books to your notion library",
+  "version": "1.0",
+  "permissions": ["storage", "tabs", "scripting", "webNavigation"],
+  "host_permissions": ["https://*/*"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "book.png",
+    "default_title": "notion library"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
