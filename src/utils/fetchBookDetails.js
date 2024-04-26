@@ -11,6 +11,8 @@ async function fetchBookDetails(isbn) {
         title: book.title,
         authors: book.authors ? book.authors.join(", ") : "No author",
         imageUrl: book.imageLinks ? book.imageLinks.thumbnail : "",
+        link: book.infoLink,
+        summary: book.description || "No description",
       };
     }
     return null;

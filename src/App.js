@@ -8,6 +8,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isbn, setIsbn] = useState("");
   const [errorText, setErrorText] = useState("");
+  const [testMessage, setTestMessage] = useState("");
 
   const findBooks = async () => {
     setIsLoading(true); // Start loading
@@ -22,18 +23,26 @@ function App() {
         alert("No ISBNs found. Please try again.");
         setErrorText("ERROR: No ISBNs found.");
       }
-      setIsLoading(false); // Stop loading
+      setIsLoading(false);
     });
   };
 
   const handleSaveToNotion = async () => {
     if (book) {
-      await postToNotion(
-        book,
-        process.env.NOTION_TOKEN,
-        process.env.NOTION_DATABASE_ID
-      );
-      alert("Book saved to Notion!");
+      try {
+        // eslint-disable-next-line no-unused-vars
+        const response = await postToNotion(
+          book,
+          process.env.REACT_APP_NOTION_TOKEN,
+          process.env.REACT_NOTION_DATABASE_ID
+        );
+        alert("Book saved to Notion!");
+      } catch (error) {
+        console.error("Failed to save book to Notion:", error);
+        alert(`Failed to save book to Notion: ${error.message}`);
+      }
+    } else {
+      alert("No book to save. Please find a book first.");
     }
   };
 
@@ -42,17 +51,48 @@ function App() {
     setIsbn("");
   };
 
+  const testNotionConnection = async () => {
+    const notionToken = process.env.NOTION_TOKEN;
+    fetch("https://api.notion.com/v1/{databaseID}/query", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${notionToken}`,
+        "Content-Type": "application/json",
+        "Notion-Version": "2021-08-16",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTestMessage("Connection test successful!");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setTestMessage(`Connection test failed: ${error.message}`);
+      });
+  };
+
   return (
     <div className="container">
       <h1>Detected Books</h1>
+      <p>
+        Go to{" "}
+        <a href="https://books.google.com/" target="_blank" rel="noreferrer">
+          https://books.google.com/
+        </a>{" "}
+        to search for books
+      </p>
       <button onClick={findBooks}>Find Books</button>
       <button onClick={resetBooks} style={{ marginLeft: "10px" }}>
         Reset Books
+      </button>
+      <button onClick={testNotionConnection} style={{ marginLeft: "10px" }}>
+        Test Notion Connection
       </button>
       {isLoading ? (
         <p>Loading...</p>
       ) : book ? (
         <div style={{ margin: "20px" }}>
+          {testMessage && <p>{testMessage}</p>}
           <p>
             <strong>Title:</strong> {book.title}
           </p>
