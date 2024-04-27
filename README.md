@@ -14,7 +14,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gdcho/notion-lib">
-    <img src="/public/book.png" alt="Logo" width="300" height="300">
+    <img src="/public/book.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">notion lib</h3>
@@ -47,13 +47,13 @@
 
 1. After installing the extension, go to Google Books and search for a book
 2. Click on the extension icon and click on the `Detect Books` button
-   <img src="/public/images/stepOne.png" alt="Logo" width="300" height="300">
+   <img src="/public/images/stepOne.png" alt="Logo" width="auto" height="auto">
 3. The book details will be displayed
-   <img src="/public/images/stepTwo.png" alt="Logo" width="300" height="300">
+   <img src="/public/images/stepTwo.png" alt="Logo" width="auto" height="auto">
 4. Click on the `Save to Notion` button
-   <img src="/public/images/stepThree.png" alt="Logo" width="300" height="300">
+   <img src="/public/images/stepThree.png" alt="Logo" width="auto" height="auto">
 5. The book details will be saved to your Notion database
-   <img src="/public/images/lastStep.png" alt="Logo" width="300" height="300">
+   <img src="/public/images/lastStep.png" alt="Logo" width="auto" height="auto">
 
 ## Getting Started
 
