@@ -5,6 +5,14 @@ async function postToNotion(bookDetails, notionToken, notionDatabaseId) {
 
   const bodyData = {
     parent: { database_id: notionDatabaseId },
+    icon: {
+      emoji: "📖",
+    },
+    cover: {
+      external: {
+        url: bookDetails.imageUrl,
+      },
+    },
     properties: {
       Title: {
         title: [

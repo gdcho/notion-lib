@@ -10,6 +10,11 @@
     "default_icon": "book.png",
     "default_title": "notion library"
   },
+  "icons": {
+    "16": "book.png",
+    "48": "book.png",
+    "128": "book.png"
+  },
   "background": {
     "service_worker": "background.js"
   },
