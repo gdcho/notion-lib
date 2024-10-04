@@ -62,17 +62,19 @@
 ```sh
    git clone https://github.com/gdcho/notion-lib
 ```
+
 2. Go to https://rjsgml.notion.site/d16508ea0f364b63b227094b0126eec7?v=707a50eea3dc48188eafda5594d2c881 and duplicate page into your workspace.
 3. Go to https://www.notion.com/my-integrations and create a new integration to get the `NOTION_API_KEY`
 4. Go to your notion database, then share --> publish and copy the link and update the `NOTION_DATABASE_URL`. The link should look like `https://www.notion.so/your-workspace/your-database-id?view=your-view-id`
-5. Go to notion connections and add the integration to your database
-6. Go to `src/App.js` and update the `NOTION_API_KEY` and `NOTION_DATABASE_ID` with your Notion API key and database ID or add to .env and use process.env
-7. Run `npm install`
-8. Run `npm run build`
-9. Load the extension in Chrome by going to `chrome://extensions/` and clicking on `Load unpacked` and selecting the `build` folder
-10. Go to Google Books https://books.google.com/ and search for a book
-11. Click on the extension icon and click on the `Save to Notion` button
-12. The book details will be saved to Notion
+5. (Optional) Go to Google Cloud Console and create a new project to get the `GOOGLE_BOOKS_API_KEY` to get more rate limits
+6. Go to notion connections and add the integration to your database
+7. Go to `src/App.js` and update the `NOTION_API_KEY` and `NOTION_DATABASE_ID` with your Notion API key and database ID or add to .env and use process.env
+8. Run `npm install`
+9. Run `npm run build`
+10. Load the extension in Chrome by going to `chrome://extensions/` and clicking on `Load unpacked` and selecting the `build` folder
+11. Go to Google Books https://books.google.com/ and search for a book
+12. Click on the extension icon and click on the `Save to Notion` button
+13. The book details will be saved to Notion
 
 ## File Contents of folder
 
@@ -118,18 +120,18 @@
 
 To learn more about Notion API, take a look at the following resources:
 
-- [Notion API Documentation](https://developers.notion.com/) - learn about Notion API features and API.
-- [Notion API Postman Collection](https://www.postman.com/notionhq/workspace/notion-api/) - a Postman collection for Notion API.
+-   [Notion API Documentation](https://developers.notion.com/) - learn about Notion API features and API.
+-   [Notion API Postman Collection](https://www.postman.com/notionhq/workspace/notion-api/) - a Postman collection for Notion API.
 
 To learn more about Google Books API, take a look at the following resources:
 
-- [Google Books API Documentation](https://developers.google.com/books) - learn about Google Books API features and API.
-- [Google Books API Postman Collection](https://www.postman.com/postman/workspace/commerce-api/collection/12959542-3af65ab4-e837-44fa-909f-243d118ccc6c) - a Postman collection for Google Books API.
+-   [Google Books API Documentation](https://developers.google.com/books) - learn about Google Books API features and API.
+-   [Google Books API Postman Collection](https://www.postman.com/postman/workspace/commerce-api/collection/12959542-3af65ab4-e837-44fa-909f-243d118ccc6c) - a Postman collection for Google Books API.
 
 To learn more about Chrome Extension, take a look at the following resources:
 
-- [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/mv3/getstarted/) - learn about Chrome Extension features and API.
-- [Chrome Extension Tutorial](https://developer.chrome.com/docs/extensions/mv3/getstarted/) - an interactive Chrome Extension tutorial.
+-   [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/mv3/getstarted/) - learn about Chrome Extension features and API.
+-   [Chrome Extension Tutorial](https://developer.chrome.com/docs/extensions/mv3/getstarted/) - an interactive Chrome Extension tutorial.
 
 ## References
 
