@@ -31,14 +31,17 @@ function App() {
     });
   };
 
+  const REACT_APP_NOTION_TOKEN = "YOUR API KEY HERE";
+  const REACT_NOTION_DATABASE_ID = "YOUR API KEY HERE";
+
   const handleSaveToNotion = async () => {
     if (book) {
       try {
         // eslint-disable-next-line no-unused-vars
         const response = await postToNotion(
           book,
-          process.env.REACT_APP_NOTION_TOKEN,
-          process.env.REACT_NOTION_DATABASE_ID
+          REACT_APP_NOTION_TOKEN,
+          REACT_NOTION_DATABASE_ID,
         );
         setShowModal(true);
       } catch (error) {
