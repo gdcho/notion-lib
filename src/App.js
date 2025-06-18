@@ -66,163 +66,152 @@ function App() {
   };
 
   return (
-    <div className="container" style={{ padding: 20 }}>
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 10,
-        }}
-      >
-        <img src="../book.png" alt="notion library logo" width={50}></img>
-        <p style={{ fontSize: 16, paddingTop: 3, color: "#101010" }}>
-          <i>
-            <b>notion library</b>
-          </i>
-        </p>
-      </div>
-      <div
-        style={{
-          paddingBottom: 10,
-        }}
-      >
-        <small>
-          Search for books at{" "}
-          <a
-            href="https://books.google.com/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ color: "black" }}
-          >
-            Google Books
-          </a>
-        </small>
-      </div>
-      <Button
-        pressFunction={reset ? resetBooks : findBooks}
-        text={reset ? "Reset" : "Detect Books"}
-        color="#262626"
-      />
-      {isLoading ? (
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingTop: 20,
-          }}
-        >
-          <img src="../loader.gif" alt="loader" width={130} />
-        </div>
-      ) : book ? (
-        <div style={{ paddingBottom: 20 }}>
-          <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-            <hr
-              style={{
-                borderTop: "3px solid #e89c34",
-                borderRadius: 10,
-              }}
-            />
-          </div>
-          <div
-            style={{
-              boxShadow: "0 2px 4px 0px gray",
-              borderRadius: 5,
-              paddingBottom: 20,
-              paddingLeft: 5,
-              paddingRight: 5,
-              paddingTop: 5,
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <p>
-              <strong>Title:</strong> {book.title}
-            </p>
-            <p>
-              <strong>Author(s):</strong> {book.authors}
-            </p>
-            <p>
-              <strong>ISBN:</strong> {isbn}
-            </p>
-            {book.imageUrl && (
-              <div
-                style={{
-                  flex: 1,
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+    <div className="app-container">
+      <header className="app-header">
+        <div className="header-content">
+          <img src="../book.png" alt="Notion Library" className="app-logo" />
+          <div className="header-text">
+            <h1 className="app-title">notion library</h1>
+            <p className="app-subtitle">
+              Search for books at{" "}
+              <a
+                href="https://books.google.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="link-primary"
               >
-                <img
-                  src={book.imageUrl}
-                  alt={book.title}
-                  style={{
-                    width: "100px",
-                    borderRadius: 10,
-                    boxShadow: "0 0 10px #000",
-                  }}
-                />
+                Google Books
+              </a>
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main className="main-content">
+        <div className="action-section">
+          <Button
+            pressFunction={reset ? resetBooks : findBooks}
+            text={reset ? "Reset" : "Detect Books"}
+            color="#262626"
+          />
+        </div>
+
+        {isLoading && (
+          <div className="loading-container">
+            <img src="../loader.gif" alt="Loading..." width={130} />
+            <p className="loading-text">Searching for books...</p>
+          </div>
+        )}
+
+        {book && !isLoading && (
+          <div className="book-section">
+            <div className="divider"></div>
+            <div className="book-card">
+              <div className="book-info">
+                <h2 className="book-title">{book.title}</h2>
+                <p className="book-authors">
+                  <span className="label">by</span> {book.authors}
+                </p>
+                <p className="book-isbn">
+                  <span className="label">ISBN:</span> {isbn}
+                </p>
+              </div>
+
+              {book.imageUrl && (
+                <div className="book-image-container">
+                  <img
+                    src={book.imageUrl}
+                    alt={`Cover of ${book.title}`}
+                    className="book-cover"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="save-section">
+              <Button
+                pressFunction={handleSaveToNotion}
+                text="Save to Notion"
+                color="#0077d4"
+              />
+            </div>
+          </div>
+        )}
+
+        {!book && !isLoading && (
+          <div className="empty-state">
+            {errorText ? (
+              <div className="error-message">
+                <div className="error-icon">⚠️</div>
+                <p className="error-text">{errorText}</p>
+              </div>
+            ) : (
+              <div className="instructions">
+                <div className="instruction-icon">📚</div>
+                <p className="instruction-text">
+                  Click 'Detect Books' to load book details from the current
+                  page
+                </p>
               </div>
             )}
           </div>
-          <div style={{ paddingTop: 20 }}>
-            <Button
-              pressFunction={handleSaveToNotion}
-              text={"Save to Notion"}
-              color="#0077d4"
-            />
-          </div>
-        </div>
-      ) : (
-        <div style={{ paddingBottom: 20 }}>
-          {errorText && <p>{errorText}</p>}
-          <p>Click 'Detect Books' to load book details</p>
-        </div>
-      )}
+        )}
+      </main>
+
       {showModal && (
-        <div className="modal">
+        <div className="modal-overlay">
           <div className="modal-content">
-            <div style={{ paddingBottom: 20 }}>
-              <p>Book saved to Notion</p>
-              <Lottie
-                options={defaultOptions}
-                height={50}
-                width={100}
-                isPaused={false}
-                isStopped={false}
+            <div className="modal-body">
+              <div className="success-icon">✅</div>
+              <h3 className="modal-title">Success!</h3>
+              <p className="modal-text">Book saved to Notion</p>
+              <div className="modal-animation">
+                <Lottie
+                  options={defaultOptions}
+                  height={60}
+                  width={120}
+                  isPaused={false}
+                  isStopped={false}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <Button
+                pressFunction={() => setShowModal(false)}
+                text="Got it"
+                color="#101010"
               />
             </div>
-            <Button
-              pressFunction={() => setShowModal(false)}
-              text={"Got it"}
-              color={"#101010"}
-            />
           </div>
         </div>
       )}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          paddingBottom: 10,
-          paddingTop: 30,
-        }}
-      >
-        <small>
-          Made with ❤️ by{" "}
-          <a
-            href="https://github.com/gdcho"
-            target="_blank"
-            rel="noreferrer"
-            style={{ color: "black" }}
-          >
-            gdcho
-          </a>
-        </small>
-      </div>
+      <footer className="app-footer">
+        <div className="footer-content">
+          <div className="footer-section">
+            <a
+              href="https://github.com/gdcho/notion-lib/blob/main/README.md"
+              target="_blank"
+              rel="noreferrer"
+              className="link-secondary"
+            >
+              📖 Setup & usage instructions
+            </a>
+          </div>
+          <div className="footer-section">
+            <span className="footer-text">
+              Made with <span className="heart">❤️</span> by{" "}
+              <a
+                href="https://github.com/rj-labs-co"
+                target="_blank"
+                rel="noreferrer"
+                className="link-secondary"
+              >
+                rj labs
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
