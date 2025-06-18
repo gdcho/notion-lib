@@ -31,9 +31,8 @@ function App() {
     });
   };
 
-  const REACT_APP_NOTION_TOKEN =
-    "secret_CTzd9vIbEqhaklKuJvOb6RuryoEP87UF6dzm3KhrDhx";
-  const REACT_NOTION_DATABASE_ID = "1120a9c2bc0f80a98628dd0156b26017";
+  const REACT_APP_NOTION_TOKEN = "YOUR API KEY HERE";
+  const REACT_NOTION_DATABASE_ID = "YOUR API KEY HERE";
 
   const handleSaveToNotion = async () => {
     if (book) {
