@@ -31,14 +31,14 @@ function App() {
     });
   };
 
-  const REACT_APP_NOTION_TOKEN = "YOUR API KEY HERE";
-  const REACT_NOTION_DATABASE_ID = "YOUR API KEY HERE";
+  const REACT_APP_NOTION_TOKEN =
+    "secret_CTzd9vIbEqhaklKuJvOb6RuryoEP87UF6dzm3KhrDhx";
+  const REACT_NOTION_DATABASE_ID = "1120a9c2bc0f80a98628dd0156b26017";
 
   const handleSaveToNotion = async () => {
     if (book) {
       try {
-        // eslint-disable-next-line no-unused-vars
-        const response = await postToNotion(
+        await postToNotion(
           book,
           REACT_APP_NOTION_TOKEN,
           REACT_NOTION_DATABASE_ID,
