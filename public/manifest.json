@@ -3,7 +3,7 @@
   "name": "notion library",
   "description": "easily add books to your notion library",
   "version": "1.0",
-  "permissions": ["storage", "tabs", "scripting", "webNavigation"],
+  "permissions": ["storage"],
   "host_permissions": ["https://*/*"],
   "action": {
     "default_popup": "index.html",
