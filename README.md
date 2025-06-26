@@ -43,17 +43,35 @@
 ![Post CSS Badge](https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white)
 ![Postman Badge](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-## How it works
+# How it works
 
-1. After installing the extension, go to Google Books and search for a book
-2. Click on the extension icon and click on the `Detect Books` button
-   <img src="/public/images/stepOne.png" alt="Logo" width="auto" height="auto">
-3. The book details will be displayed
-   <img src="/public/images/stepTwo.png" alt="Logo" width="auto" height="auto">
-4. Click on the `Save to Notion` button
-   <img src="/public/images/stepThree.png" alt="Logo" width="auto" height="auto">
-5. The book details will be saved to your Notion database
-   <img src="/public/images/lastStep.png" alt="Logo" width="auto" height="auto">
+## Step 1: Initial Setup
+After installing the extension, refer to `Extension Setup after Chrome Extension Installation` to configure and set up the API keys.
+
+![Extension Setup](https://i.ibb.co/LzDdMSMv/Screenshot-2025-06-24-at-8-58-27-PM.png)
+
+## Step 2: Navigate to Google Books
+After configuring API keys, go to Google Books and search for a book.
+
+## Step 3: Detect Books
+Click on the extension icon and click on the `Detect Books` button.
+
+![Detect Books Button](https://i.ibb.co/CKQF82vH/Screenshot-2025-06-24-at-9-01-09-PM.png)
+
+## Step 4: View Book Details
+The book details will be displayed in the extension popup.
+
+![Book Details Display](https://i.ibb.co/5g8XTL3Y/Screenshot-2025-06-24-at-8-59-22-PM.png)
+
+## Step 5: Save to Notion
+Click on the `Save to Notion` button to save the book information.
+
+![Save to Notion Button](https://i.ibb.co/1YvQXtwv/Screenshot-2025-06-24-at-9-01-21-PM.png)
+
+## Step 6: Confirmation
+The book details will be saved to your Notion database.
+
+![Final Result](./public/images/lastStep.png)
 
 ## Extension Setup after Chrome Extension Installation
 
