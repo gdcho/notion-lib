@@ -373,6 +373,16 @@ function App() {
                 rj labs
               </a>
             </span>
+            <span className="footer-divider"> | </span>
+            <a
+              href="https://www.buymeacoffee.com/rjsgml"
+              target="_blank"
+              rel="noreferrer"
+              className="link-secondary"
+              title="Support my work"
+            >
+              ☕ Buy me a coffee
+            </a>
           </div>
         </div>
       </footer>
