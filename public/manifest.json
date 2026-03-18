@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "notion library",
-  "description": "easily add books to your notion library",
-  "version": "1.1",
+  "name": "notion library: auto-save books to Notion",
+  "description": "Save books from Google Books directly to your Notion database. Browse a book on Google Books, click the extension, and save the title, author, ISBN, and cover in one click.",
+  "version": "2.0.0",
   "permissions": ["storage"],
   "host_permissions": ["https://*/*"],
   "action": {

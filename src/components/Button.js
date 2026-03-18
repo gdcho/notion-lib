@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Button.css";
 
-const Button = ({ pressFunction, text, color }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const Button = ({ pressFunction, text, color, disabled }) => {
   return (
     <button
-      className={`button ${isHovered ? "hovered" : ""}`}
+      className="button"
       style={{ backgroundColor: color }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onClick={pressFunction}
+      disabled={disabled}
     >
-      <b>{text}</b>
+      {text}
     </button>
   );
 };
