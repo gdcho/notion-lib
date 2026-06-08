@@ -7,7 +7,7 @@
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "lucide-react": "^1.17.0",
-    "react": "^19.2.4",
+    "react": "^19.2.7",
     "react-dom": "^19.2.6",
     "react-lottie": "^1.2.10",
     "react-scripts": "5.0.1",
